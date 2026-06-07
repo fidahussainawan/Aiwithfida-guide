@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Projects Resource Guide – Fida</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0d0d0d;
+      --paper: #f7f4ef;
+      --cream: #ede8df;
+      --accent: #c84b2f;
+      --accent2: #2563a8;
+      --muted: #7a7066;
+      --rule: #ccc5b8;
+      --card-bg: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--ink);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px;
+      border-bottom: 2px solid var(--accent);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--paper);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .nav-links { display: flex; gap: 1.6rem; list-style: none; }
+    .nav-links a {
+      color: #b8b0a4;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links .ig-link { color: #e07b5a; }
+    .nav-links .ig-link:hover { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--ink);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(255,255,255,0.03) 39px,
+        rgba(255,255,255,0.03) 40px
+      );
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.6rem;
+      animation: fadeUp 0.5s ease both;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      font-weight: 900;
+      color: var(--paper);
+      line-height: 1.12;
+      max-width: 760px;
+      margin: 0 auto 1.4rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    .hero h1 em {
+      color: var(--accent);
+      font-style: italic;
+    }
+    .hero-sub {
+      color: #8c8479;
+      font-size: 0.95rem;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .hero-meta {
+      margin-top: 2rem;
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .hero-meta a {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #c9c2b8;
+      text-decoration: none;
+      font-size: 0.82rem;
+      padding: 0.5rem 1.1rem;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .hero-meta a:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .hero-meta .ig-btn {
+      background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+      border: none;
+      color: #fff;
+    }
+    .hero-meta .ig-btn:hover { opacity: 0.85; }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      margin-bottom: 3.5rem;
+      animation: fadeUp 0.5s ease both;
+    }
+    .section-header {
+      display: flex; align-items: baseline; gap: 0.9rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1.5px solid var(--rule);
+    }
+    .section-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      min-width: 2rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    /* ── CARDS ── */
+    .cards { display: grid; gap: 1rem; }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.25rem 1.4rem;
+      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+      position: relative;
+    }
+    .card:hover {
+      border-color: var(--accent2);
+      box-shadow: 0 4px 20px rgba(37,99,168,0.1);
+      transform: translateY(-2px);
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent2);
+      border-radius: 4px 0 0 4px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .card:hover::before { opacity: 1; }
+
+    .card-title {
+      font-weight: 500;
+      font-size: 0.97rem;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+    .card-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 0.75rem;
+      line-height: 1.55;
+    }
+    .card-link {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--accent2);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      padding: 0.25rem 0;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .card-link:hover { border-bottom-color: var(--accent2); }
+    .card-link::after { content: ' →'; }
+
+    /* ── BONUS ── */
+    .bonus-label {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── CTA ── */
+    .cta-block {
+      background: var(--ink);
+      border-radius: 6px;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-block::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent));
+    }
+    .cta-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      color: var(--paper);
+      margin-bottom: 0.6rem;
+    }
+    .cta-block p {
+      color: #8c8479;
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin-bottom: 1.6rem;
+    }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.75rem 1.8rem;
+      border-radius: 3px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .cta-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--cream);
+      border-top: 1px solid var(--rule);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent2); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1rem; }
+      .hero { padding: 3.5rem 1.2rem 3rem; }
+      main { padding: 2.5rem 1rem 4rem; }
+      .cta-block { padding: 2.2rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">AI with Fida</a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Free Guides</a></li>
+    <li><a href="https://www.instagram.com/aiwithfida" target="_blank" class="ig-link">Instagram</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-badge">Free Resource Guide</div>
+  <h1>AI Projects:<br/><em>Resource Guide</em></h1>
+  <p class="hero-sub">Everything you need to build real AI projects and land $200K+ roles in 2026.<br/>Curated by Fida.</p>
+  <div class="hero-meta">
+    <span style="color:#6b6360; font-size:0.82rem;">By Fida &nbsp;|&nbsp; @aiwithfida on Instagram</span>
+    <a href="https://www.instagram.com/aiwithfida" target="_blank" class="ig-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      Follow @aiwithfida
+    </a>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <!-- 1. AI PRD -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">1</span>
+      <h2 class="section-title">AI PRD Resources</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <p class="card-title">Lenny's Newsletter: PRD Examples & Templates</p>
+        <p class="card-desc">Use this to understand what strong PRDs and 1-pagers look like, especially problem framing and product clarity.</p>
+        <a class="card-link" href="https://www.lennysnewsletter.com/p/prds-1-pagers-examples" target="_blank">lennysnewsletter.com/p/prds-1-pagers-examples</a>
+      </div>
+      <div class="card">
+        <p class="card-title">ProductPlan: Product Requirements Document Guide</p>
+        <p class="card-desc">Good starter reference for PRD structure, purpose, and common sections.</p>
+        <a class="card-link" href="https://www.productplan.com/glossary/product-requirements-document/" target="_blank">productplan.com/glossary/product-requirements-document</a>
+      </div>
+      <div class="card">
+        <p class="card-title">Atlassian: Product Requirements Guide</p>
+        <p class="card-desc">Helpful for writing lightweight, agile PRDs that align teams without over-documenting.</p>
+        <a class="card-link" href="https://www.atlassian.com/agile/product-management/requirements" target="_blank">atlassian.com/agile/product-management/requirements</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. AI Evaluation -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">2</span>
+      <h2 class="section-title">AI Evaluation Resources</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <p class="card-title">OpenAI Evals</p>
+        <p class="card-desc">Framework for testing LLM outputs and building custom evaluations for AI product behavior.</p>
+        <a class="card-link" href="https://github.com/openai/evals" target="_blank">github.com/openai/evals</a>
+      </div>
+      <div class="card">
+        <p class="card-title">OpenAI: Working with Evals</p>
+        <p class="card-desc">Practical OpenAI guide for evaluating model outputs against expected style, quality, and behavior.</p>
+        <a class="card-link" href="https://developers.openai.com/api/docs/guides/evals" target="_blank">developers.openai.com/api/docs/guides/evals</a>
+      </div>
+      <div class="card">
+        <p class="card-title">LangSmith Evaluation Docs</p>
+        <p class="card-desc">Useful for testing AI apps across datasets, evaluators, experiments, and production monitoring.</p>
+        <a class="card-link" href="https://docs.langchain.com/langsmith/evaluation" target="_blank">docs.langchain.com/langsmith/evaluation</a>
+      </div>
+      <div class="card">
+        <p class="card-title">LangSmith Evaluation Quickstart</p>
+        <p class="card-desc">Good hands-on starting point for building your first evaluation flow.</p>
+        <a class="card-link" href="https://docs.langchain.com/langsmith/evaluation-quickstart" target="_blank">docs.langchain.com/langsmith/evaluation-quickstart</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. AI Launch Plan -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">3</span>
+      <h2 class="section-title">AI Launch Plan Resources</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <p class="card-title">Reforge: Product Launch Examples</p>
+        <p class="card-desc">Real product launch examples and templates for planning rollout, risks, and launch execution.</p>
+        <a class="card-link" href="https://www.reforge.com/artifacts/c/product-development/product-launch" target="_blank">reforge.com/artifacts/c/product-development/product-launch</a>
+      </div>
+      <div class="card">
+        <p class="card-title">Reforge: Build a Go-to-Market Launch Plan</p>
+        <p class="card-desc">Helpful for structuring launch goals, activities, validation, and cross-functional alignment.</p>
+        <a class="card-link" href="https://www.reforge.com/guides/build-a-go-to-market-launch-plan" target="_blank">reforge.com/guides/build-a-go-to-market-launch-plan</a>
+      </div>
+      <div class="card">
+        <p class="card-title">ProductPlan: Go-To-Market Strategy</p>
+        <p class="card-desc">Good reference for GTM basics, customer journey, channels, pricing, sales, and launch planning.</p>
+        <a class="card-link" href="https://www.productplan.com/glossary/go-to-market-strategy/" target="_blank">productplan.com/glossary/go-to-market-strategy</a>
+      </div>
+      <div class="card">
+        <p class="card-title">Atlassian: Product Launch Checklist</p>
+        <p class="card-desc">Simple checklist for pre-launch planning, stakeholder alignment, and post-launch follow-up.</p>
+        <a class="card-link" href="https://www.atlassian.com/agile/product-management/product-launch-checklist" target="_blank">atlassian.com/agile/product-management/product-launch-checklist</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. AI Risk & Safety -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">4</span>
+      <h2 class="section-title">AI Risk & Safety Resources</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <p class="card-title">Google Secure AI Framework (SAIF)</p>
+        <p class="card-desc">Security framework for building AI systems with stronger privacy, security, and risk controls.</p>
+        <a class="card-link" href="https://saif.google/" target="_blank">saif.google</a>
+      </div>
+      <div class="card">
+        <p class="card-title">NIST AI Risk Management Framework</p>
+        <p class="card-desc">Core AI risk framework covering governance, mapping, measurement, and risk management.</p>
+        <a class="card-link" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank">nist.gov/itl/ai-risk-management-framework</a>
+      </div>
+      <div class="card">
+        <p class="card-title">NIST AI RMF Resource Center</p>
+        <p class="card-desc">More detailed AI RMF resources, playbooks, and implementation guidance.</p>
+        <a class="card-link" href="https://airc.nist.gov/airmf-resources/airmf/" target="_blank">airc.nist.gov/airmf-resources/airmf</a>
+      </div>
+      <div class="card">
+        <p class="card-title">OpenAI Safety Best Practices</p>
+        <p class="card-desc">Practical guidance on moderation, adversarial testing, human oversight, and safer deployment.</p>
+        <a class="card-link" href="https://developers.openai.com/api/docs/guides/safety-best-practices" target="_blank">developers.openai.com/api/docs/guides/safety-best-practices</a>
+      </div>
+      <div class="card">
+        <p class="card-title">Google People + AI Guidebook</p>
+        <p class="card-desc">Strong product and UX resource for designing human-centered AI products.</p>
+        <a class="card-link" href="https://pair.withgoogle.com/guidebook/" target="_blank">pair.withgoogle.com/guidebook</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. AI Product Metrics -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-num">5</span>
+      <h2 class="section-title">AI Product Metrics Resources</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <p class="card-title">Amplitude: Product Analytics Guide</p>
+        <p class="card-desc">Great primer on tracking user behavior, activation, retention, and product journeys.</p>
+        <a class="card-link" href="https://amplitude.com/guides/product-analytics" target="_blank">amplitude.com/guides/product-analytics</a>
+      </div>
+      <div class="card">
+        <p class="card-title">Amplitude: Product Analytics Fundamentals</p>
+        <p class="card-desc">Beginner-friendly resource for learning analytics concepts and asking better product questions.</p>
+        <a class="card-link" href="https://amplitude.com/product-analytics-fundamentals" target="_blank">amplitude.com/product-analytics-fundamentals</a>
+      </div>
+      <div class="card">
+        <p class="card-title">Reforge: Identify Key Product Metrics with an Altitude Scorecard</p>
+        <p class="card-desc">Useful framework for choosing the right product metrics and connecting them to business impact.</p>
+        <a class="card-link" href="https://www.reforge.com/guides/identify-key-product-metrics-with-an-altitude-scorecard" target="_blank">reforge.com/guides/identify-key-product-metrics</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bonus -->
+  <section class="section">
+    <div class="bonus-label">
+      ★ Bonus
+    </div>
+    <div class="section-header" style="margin-top:0; border-color: #e0d9ce;">
+      <h2 class="section-title" style="font-size:1.15rem;">Bonus AI Resources</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <p class="card-title">Google People + AI Research (PAIR)</p>
+        <p class="card-desc">Collection of AI product, UX, and responsible design resources from Google's PAIR team.</p>
+        <a class="card-link" href="https://pair.withgoogle.com/" target="_blank">pair.withgoogle.com</a>
+      </div>
+      <div class="card">
+        <p class="card-title">Google Codelab: Building Trusted AI Products with the PAIR Guidebook</p>
+        <p class="card-desc">Hands-on walkthrough for applying human-centered AI principles to product decisions.</p>
+        <a class="card-link" href="https://codelabs.developers.google.com/codelabs/pair-guidebook" target="_blank">codelabs.developers.google.com/codelabs/pair-guidebook</a>
+      </div>
+      <div class="card">
+        <p class="card-title">ProductBoard: PRD Glossary</p>
+        <p class="card-desc">Another solid PRD reference for structuring product requirements around user problems.</p>
+        <a class="card-link" href="https://www.productboard.com/glossary/product-requirements-document/" target="_blank">productboard.com/glossary/product-requirements-document</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Follow for More AI Content</h2>
+    <p>Daily tips, templates, and career resources to help you break into AI.</p>
+    <a class="cta-btn" href="https://www.instagram.com/aiwithfida" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      Follow @aiwithfida
+    </a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  Built by <strong>Fida</strong> &nbsp;|&nbsp; <a href="https://www.instagram.com/aiwithfida" target="_blank">@aiwithfida</a>
+</footer>
+
+</body>
+</html>
